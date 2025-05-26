@@ -19,3 +19,6 @@ void Logger::Log(const std::string& message, const std::string& level) {
     logFile << "[" << timeStr << "] [" << level << "] " << message << std::endl;
 }
 
+void Logger::LogWarning(const std::string& message) {
+    Log(message, "WARNING");
+}

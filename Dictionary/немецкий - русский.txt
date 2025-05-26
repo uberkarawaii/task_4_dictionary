@@ -1,6 +1,7 @@
 die Kleidung - одежда
 der Stern - звезда
 die Ahnung - идея
+die Ahnung - представление
 hassen - ненавидеть
 schaffen - создавать
 nehmen - брать

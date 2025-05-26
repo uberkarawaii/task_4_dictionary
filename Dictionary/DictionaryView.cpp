@@ -85,6 +85,7 @@ void CDictionaryView::OnTranslateClicked() {
 
     if (wordCStr.IsEmpty()) {
         AfxMessageBox(_T("Введите слово для перевода"));
+        Logger::Instance().LogWarning("Пользователь пытается сделать перевод для пустой строки");
         return;
     }
 
@@ -94,6 +95,7 @@ void CDictionaryView::OnTranslateClicked() {
 
     if (fromStr == toStr) {
         AfxMessageBox(_T("Выберите разные языки"));
+        Logger::Instance().LogWarning("Попытка перевода на тот же язык. Перевод невозможен");
         return;
     }
 
@@ -106,13 +108,15 @@ void CDictionaryView::OnTranslateClicked() {
         auto results = m_dict.Translate(word, from, to);
         m_listResult.ResetContent();
 
-        if (results.empty()) {
+        if (results.empty() || (results.size() == 1 && results[0] == "Перевод не найден")) {
             m_listResult.AddString(_T("Перевод не найден"));
+            Logger::Instance().Log("Перевод не найден: " + word + " (" + from + "->" + to + ")");
         }
         else {
             for (const auto& r : results) {
                 m_listResult.AddString(CString(r.c_str()));
             }
+            Logger::Instance().Log("Успешный перевод: " + word + " (" + from + "->" + to + ")");
         }
     }
     catch (...) {

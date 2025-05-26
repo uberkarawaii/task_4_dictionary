@@ -35,8 +35,11 @@ std::vector<std::string> Dictionary::Translate(const std::string& word, const st
         auto it2 = it1->second.find(to);
         if (it2 != it1->second.end()) {
             auto it3 = it2->second.find(word);
-            if (it3 != it2->second.end())
-                return it3->second;
+            if (it3 != it2->second.end()) {
+                // Удалим дубликаты
+                std::set<std::string> unique(it3->second.begin(), it3->second.end());
+                return std::vector<std::string>(unique.begin(), unique.end());
+            }
         }
     }
     return { "Перевод не найден" };
@@ -44,7 +47,6 @@ std::vector<std::string> Dictionary::Translate(const std::string& word, const st
 
 std::set<std::string> Dictionary::GetLanguages() const {
     std::set<std::string> langs;
-    // Старый стиль итерации (совместимый со всеми версиями C++)
     for (auto it1 = data.begin(); it1 != data.end(); ++it1) {
         const std::string& fromLang = it1->first;
         langs.insert(fromLang);
