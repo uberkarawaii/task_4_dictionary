@@ -11,6 +11,7 @@
 одежда     - die Kleidung  - garment  
 звезда     - der Stern     - star  
 идея       - die Ahnung    - idea  
+представление - die Ahnung
 ненавидеть - hassen        - hate  
 создавать  - schaffen      - create  
 брать      - nehmen        - take  
