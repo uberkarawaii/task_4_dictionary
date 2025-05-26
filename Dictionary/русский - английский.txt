@@ -1,0 +1,26 @@
+одежда - garment
+звезда - a star
+идея - idea
+ненавидеть - hate
+создавать - create
+брать - take
+давать - give
+тридцать - thirty
+врач - doctor
+водитель - driver
+сейчас - now
+никогда - never
+всегда - always
+иногда - sometimes
+что-то - something
+мясо - meat
+пиво - beer
+огурец - cucumber
+окно - window
+шапка - hat
+пальто - coat
+тёмный - dark
+чёрный - black
+прохладный - chill
+папа - father
+мама - mother
